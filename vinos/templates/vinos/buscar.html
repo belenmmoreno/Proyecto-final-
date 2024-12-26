@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Buscar Vino{% endblock %}
+
+{% block contenido %}
+<h2>Buscar Vino</h2>
+<form method="get">
+    <input type="text" name="q" placeholder="Ingrese el nombre del vino">
+    <button type="submit">Buscar</button>
+</form>
+
+{% if resultados %}
+    <h3>Resultados:</h3>
+    <ul>
+        {% for vino in resultados %}
+            <li>{{ vino.nombre }} - {{ vino.bodega.nombre }}</li>
+        {% endfor %}
+    </ul>
+{% elif resultados is not None %}
+    <p>No se encontraron resultados.</p>
+{% endif %}
+{% endblock %}
+

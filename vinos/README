@@ -1,0 +1,103 @@
+Venta de Vinos
+
+Descripción del Proyecto
+
+“Venta de Vinos” es una página web para gestionar bodegas, vinos y reseñas, además de proporcionar funcionalidades de autenticación, perfiles de usuarios, páginas personalizadas y mensajería. Es un proyecto desarrollado con Django.
+
+Funcionalidades
+	1.	Gestión de Vinos y Bodegas:
+	•	Crear, editar y borrar bodegas y vinos.
+	•	Buscar vinos por nombre.
+	2.	Autenticación de Usuarios:
+	•	Registro de nuevos usuarios.
+	•	Inicio y cierre de sesión.
+	3.	Gestión de Perfiles:
+	•	Visualizar y editar el perfil del usuario (nombre, apellido, avatar, biografía, etc.).
+	•	Cambiar contraseña.
+	4.	Páginas Personalizadas:
+	•	Crear, editar y borrar páginas personalizadas (por ejemplo, blogs o publicaciones).
+	•	Listar páginas disponibles con opción de ver el detalle.
+	•	Mensaje si no hay páginas creadas.
+	5.	Mensajería:
+	•	Comunicación entre usuarios mediante mensajes privados.
+	6.	Páginas Principales:
+	•	Inicio: Página principal con acceso rápido a las funcionalidades.
+	•	Acerca de Mí: Página informativa sobre el proyecto y su creador.
+	•	Páginas: Listado de publicaciones creadas.
+
+Requisitos
+	•	Django 4.2+
+	•	Pillow (para manejo de imágenes).
+	•	django-ckeditor (para texto enriquecido).
+
+Instrucciones para Configurar el Proyecto
+
+1. Clonar el Repositorio
+
+git clone <URL_DEL_REPOSITORIO>
+cd venta_vinos
+
+2. Crear y Activar un Entorno Virtual
+
+python -m venv venv
+source venv/bin/activate    # En Windows: venv\Scripts\activate
+
+3. Instalar Dependencias
+
+pip install -r requirements.txt
+
+4. Configurar el Archivo .env
+
+Crea un archivo .env en la raíz del proyecto con las siguientes variables:
+
+SECRET_KEY='tu_clave_secreta'
+DEBUG=True
+ALLOWED_HOSTS=localhost, 127.0.0.1
+
+5. Aplicar las Migraciones
+
+python manage.py makemigrations
+python manage.py migrate
+
+6. Crear un Usuario Administrador
+
+python manage.py createsuperuser
+
+7. Ejecutar el Servidor
+
+python manage.py runserver
+
+Uso del Proyecto
+
+Acceso al Proyecto
+	1.	Accede a http://127.0.0.1:8000/.
+	2.	Explora las funcionalidades desde el menú de navegación.
+
+Administrador de Django
+	1.	Ingresa a http://127.0.0.1:8000/admin/.
+	2.	Utiliza el usuario y contraseña del superusuario creado previamente.
+
+Estructura del Proyecto
+	•	Apps Principales:
+	•	vinos: Gestión de bodegas, vinos y reseñas.
+	•	accounts: Manejo de usuarios y perfiles.
+	•	pages: Gestión de páginas personalizadas.
+	•	messaging: Comunicación entre usuarios.
+	•	Plantillas:
+	•	Herencia de templates (base.html como archivo base).
+	•	Templates específicos para cada funcionalidad (inicio, formularios, listado, detalles, etc.).
+
+Dependencias Principales
+	•	Django 4.2+
+	•	django-ckeditor
+	•	Pillow
+
+Características Adicionales
+	•	Uso de clases basadas en vistas (CBVs) para funcionalidades como listados y detalles.
+	•	Decoradores y mixins para proteger vistas sensibles.
+	•	Soporte para texto enriquecido en publicaciones mediante CKEditor.
+	•	Manejo de imágenes en perfiles y páginas.
+
+To-Do Opcional
+	1.	Implementar un sistema de likes o reacciones en publicaciones.
+	2.	Mejorar el diseño con CSS o Bootstrap.

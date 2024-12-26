@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block titulo %}{{ pagina.titulo }}{% endblock %}
+
+{% block contenido %}
+<h2>{{ pagina.titulo }}</h2>
+<p>{{ pagina.contenido }}</p>
+{% if pagina.imagen %}
+    <img src="{{ pagina.imagen.url }}" alt="Imagen de {{ pagina.titulo }}">
+{% endif %}
+<p><strong>Fecha:</strong> {{ pagina.fecha }}</p>
+{% endblock %}
+

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Páginas{% endblock %}
+
+{% block contenido %}
+<h2>Páginas Disponibles</h2>
+{% if paginas %}
+    <ul>
+        {% for pagina in paginas %}
+            <li>
+                <a href="{% url 'page_detail' pagina.pk %}">{{ pagina.titulo }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay páginas disponibles.</p>
+{% endif %}
+{% endblock %}
