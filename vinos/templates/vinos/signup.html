@@ -1,0 +1,20 @@
+<!-- vinos/templates/vinos/signup.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+</head>
+<body>
+    <h1>Formulario de Registro</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <!-- Aquí irían los campos del formulario, como nombre, email, etc. -->
+        <label for="username">Usuario:</label>
+        <input type="text" name="username" id="username" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required><br><br>
+        <button type="submit">Registrarse</button>
+    </form>
+</body>
+</html>

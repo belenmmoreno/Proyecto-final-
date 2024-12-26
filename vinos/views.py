@@ -10,6 +10,8 @@ from .forms import BodegaForm, VinoForm, ReseñaForm, PageForm, ProfileForm
 # Página de inicio
 def inicio(request):
     return render(request, 'vinos/inicio.html')
+def signup (request):
+    return render (request, 'vinos/signup.html')
 
 # Crear una bodega
 def crear_bodega(request):

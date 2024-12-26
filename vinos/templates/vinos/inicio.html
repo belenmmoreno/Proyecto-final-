@@ -1,8 +1,11 @@
-{% extends 'template/vinos/base.html' %}
-
-{% block titulo %}Inicio{% endblock %}
-
-{% block contenido %}
-<h2>Bienvenido a Venta de Vinos</h2>
-<p>Explora nuestra selección de bodegas, vinos y más.</p>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+</head>
+<body>
+    <h1>Bienvenido a nuestra tienda de vinos</h1>
+    <p>¿No tienes cuenta? <a href="{% url 'signup' %}">Regístrate aquí</a></p>
+</body>
+</html>
