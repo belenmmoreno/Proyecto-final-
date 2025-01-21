@@ -7,9 +7,17 @@
 <p><strong>Nombre:</strong> {{ user.profile.nombre }}</p>
 <p><strong>Apellido:</strong> {{ user.profile.apellido }}</p>
 <p><strong>Email:</strong> {{ user.email }}</p>
+
 {% if user.profile.avatar %}
-    <img src="{{ user.profile.avatar.url }}" alt="Avatar">
+    <img src="{{ user.profile.avatar.url }}" alt="Avatar" style="max-width: 200px;">
 {% endif %}
+
 <p><strong>Biografía:</strong> {{ user.profile.biografia }}</p>
+
+<!-- Enlace para editar el perfil -->
 <a href="{% url 'edit_profile' %}">Editar Perfil</a>
+
+<!-- Enlace para cerrar sesión -->
+<a href="{% url 'logout' %}">Cerrar sesión</a>
+
 {% endblock %}

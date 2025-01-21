@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Listado de Bodegas{% endblock %}
+
+{% block contenido %}
+<h2>Bodegas Disponibles</h2>
+<a href="{% url 'bodega_create' %}">Agregar Nueva Bodega</a>
+{% if bodegas %}
+    <ul>
+        {% for bodega in bodegas %}
+            <li>
+                {{ bodega.nombre }} - 
+                <a href="{% url 'bodega_edit' bodega.id %}">Editar</a> | 
+                <a href="{% url 'bodega_delete' bodega.id %}">Eliminar</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay bodegas registradas.</p>
+{% endif %}
+{% endblock %}

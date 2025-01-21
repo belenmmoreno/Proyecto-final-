@@ -19,7 +19,7 @@ from django.urls import path, include
 from django.contrib.auth.views import LoginView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('vinos.urls')), 
-    path('login/', LoginView.as_view(template_name='registration/login.html'), name='login'), 
+    path('admin/', admin.site.urls), 
+    path('', include('vinos.urls')),  
+    path('login/', LoginView.as_view(template_name='registration/login.html'), name='login'),  # Ruta para iniciar sesión
 ]

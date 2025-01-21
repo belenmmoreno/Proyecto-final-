@@ -1,4 +1,4 @@
-<!-- vinos/templates/vinos/signup.html -->
+<!-- templates/vinos/signup.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,12 +9,9 @@
     <h1>Formulario de Registro</h1>
     <form method="POST">
         {% csrf_token %}
-        <!-- Aquí irían los campos del formulario, como nombre, email, etc. -->
-        <label for="username">Usuario:</label>
-        <input type="text" name="username" id="username" required><br><br>
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" required><br><br>
+        {{ form.as_p }}
         <button type="submit">Registrarse</button>
     </form>
+    <p>¿Ya tienes cuenta? <a href="{% url 'login' %}">Iniciar sesión</a></p>
 </body>
 </html>

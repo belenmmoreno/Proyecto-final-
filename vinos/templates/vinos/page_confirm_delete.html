@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
-{% block titulo %}Eliminar Página{% endblock %}
+{% block titulo %}Eliminar Bodega{% endblock %}
 
 {% block contenido %}
-<h2>¿Está seguro de que desea eliminar la página "{{ object.titulo }}"?</h2>
+<h2>¿Estás seguro de que deseas eliminar "{{ object.nombre }}"?</h2>
 <form method="post">
     {% csrf_token %}
     <button type="submit">Sí, eliminar</button>
-    <a href="{% url 'pages' %}">Cancelar</a>
+    <a href="{% url 'bodegas_list' %}">Cancelar</a>
 </form>
 {% endblock %}
 

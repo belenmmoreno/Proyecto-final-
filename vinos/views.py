@@ -1,7 +1,8 @@
-from django.shortcuts import render
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin  # Asegúrate de que esta línea esté incluida
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Bodega, Vino, Reseña, Page, Profile
@@ -10,8 +11,18 @@ from .forms import BodegaForm, VinoForm, ReseñaForm, PageForm, ProfileForm
 # Página de inicio
 def inicio(request):
     return render(request, 'vinos/inicio.html')
-def signup (request):
-    return render (request, 'vinos/signup.html')
+
+# Vista de registro
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, '¡Te has registrado con éxito! Ahora puedes iniciar sesión.')
+            return redirect('login')  # Redirige al login después del registro
+    else:
+        form = UserCreationForm()
+    return render(request, 'vinos/signup.html', {'form': form})
 
 # Crear una bodega
 def crear_bodega(request):
@@ -52,7 +63,7 @@ class PageDetailView(DetailView):
     context_object_name = 'pagina'
 
 # Crear una página (requiere login)
-class PageCreateView(LoginRequiredMixin, CreateView):
+class PageCreateView(LoginRequiredMixin, CreateView):  # Esta clase ahora debería funcionar sin errores
     model = Page
     form_class = PageForm
     template_name = 'vinos/page_form.html'
